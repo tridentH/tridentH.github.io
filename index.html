@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tristan Huynh</title>
+<meta name="description" content="Tristan Huynh, software engineer and computer science student in Arizona." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --night: #15211D;
+    --night-2: #1C2C27;
+    --line: #2C3A34;
+    --cream: #ECE6D6;
+    --cream-soft: rgba(236, 230, 214, 0.74);
+    --mute: #99A89B;
+    --mute-dim: #6C7B71;
+    --sun: #E8A14D;
+    --clay: #CE6F4B;
+    --euc: #8FB3A6;
+
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --serif: "Newsreader", Georgia, serif;
+    --maxw: 980px;
+    --pad: clamp(22px, 5vw, 60px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--night);
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--sun); color: var(--night); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+  .eyebrow {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sun);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px; height: 1px;
+    background: var(--sun);
+    opacity: 0.55;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(8px);
+    background: rgba(21, 33, 29, 0.7);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .inner {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 16px var(--pad);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { font-family: var(--display); font-weight: 600; font-size: 16px; letter-spacing: 0.01em; }
+  .navlinks { display: flex; gap: 28px; }
+  .navlinks a {
+    font-family: var(--display); font-weight: 500;
+    font-size: 13px; letter-spacing: 0.06em;
+    color: var(--mute); transition: color 0.18s ease;
+  }
+  .navlinks a:hover { color: var(--cream); }
+  @media (max-width: 620px) { .navlinks { display: none; } }
+
+  .hero { position: relative; padding: clamp(80px, 14vw, 160px) 0 clamp(60px, 10vw, 110px); overflow: hidden; }
+  #contours {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 80%, transparent 100%);
+            mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 80%, transparent 100%);
+  }
+  .hero::after {
+    content: ""; position: absolute; top: -10%; right: -8%;
+    width: 480px; height: 480px; z-index: 0; pointer-events: none;
+    background: radial-gradient(circle, rgba(232, 161, 77, 0.16) 0%, transparent 65%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(52px, 11vw, 112px);
+    line-height: 0.95; letter-spacing: -0.025em;
+    margin: 20px 0 20px;
+  }
+  .hero .role { font-family: var(--display); font-weight: 500; font-size: clamp(15px, 2.6vw, 19px); color: var(--cream); }
+  .hero .role .sep { color: var(--mute-dim); margin: 0 8px; }
+  .hero .lede { max-width: 540px; margin-top: 26px; font-size: clamp(18px, 2.6vw, 21px); color: var(--cream-soft); }
+  .hero .lede em { color: var(--sun); font-style: italic; }
+
+  .links { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 26px; }
+  .links a {
+    font-family: var(--display); font-weight: 500; font-size: 14px;
+    letter-spacing: 0.03em; color: var(--cream);
+    padding-bottom: 3px; border-bottom: 1px solid var(--line);
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .links a:hover { color: var(--sun); border-color: var(--sun); }
+
+  section { position: relative; padding: clamp(64px, 10vw, 104px) 0; border-top: 1px solid var(--line); z-index: 1; background: var(--night); }
+  .sec-head { margin-bottom: 44px; }
+  .sec-head h2 {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(30px, 5.5vw, 46px); letter-spacing: -0.015em;
+    margin-top: 18px;
+  }
+
+  .entry {
+    display: grid; grid-template-columns: 160px 1fr; gap: 30px;
+    padding: 30px 0; border-top: 1px solid var(--line);
+  }
+  .entry:first-of-type { border-top: none; padding-top: 0; }
+  .entry .when { font-family: var(--display); font-weight: 500; font-size: 14px; color: var(--mute-dim); letter-spacing: 0.03em; padding-top: 6px; }
+  .entry h3 { font-family: var(--display); font-weight: 600; font-size: 23px; letter-spacing: -0.01em; }
+  .entry .org { font-family: var(--display); font-weight: 500; color: var(--sun); font-size: 15px; margin: 6px 0 14px; }
+  .entry p { color: var(--cream-soft); font-size: 17px; max-width: 600px; }
+  @media (max-width: 600px) {
+    .entry { grid-template-columns: 1fr; gap: 10px; }
+    .entry .when { padding-top: 0; }
+  }
+
+  .skillgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px 44px; }
+  .skillgroup h4 {
+    font-family: var(--display); font-weight: 600; font-size: 13px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--sun);
+    margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .skillgroup p { font-size: 17px; color: var(--cream-soft); line-height: 1.9; }
+  .skillgroup p .x { color: var(--mute-dim); }
+
+  .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 32px; max-width: 460px; } }
+
+  .photo {
+    position: relative; aspect-ratio: 4 / 5; border-radius: 6px;
+    background: var(--night-2);
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    overflow: hidden;
+    transform: rotate(-1.6deg);
+    transition: transform 0.3s ease;
+  }
+  .photo:hover { transform: rotate(0deg); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo.noimg::after {
+    content: "add me.jpg to the repo";
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-size: 13px; letter-spacing: 0.04em; color: var(--mute-dim);
+    text-align: center; padding: 20px;
+  }
+
+  .about-text h2 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5.5vw, 44px); letter-spacing: -0.015em; margin: 16px 0 22px; }
+  .about-text p { color: var(--cream-soft); font-size: 18px; margin-bottom: 18px; }
+  .about-text p em { color: var(--cream); font-style: italic; }
+  .editme { color: var(--mute-dim); font-size: 15px; font-style: italic; }
+  .email-line { margin-top: 28px; font-family: var(--display); font-weight: 500; }
+  .email-line a {
+    color: var(--sun); font-size: 19px; letter-spacing: 0.01em;
+    border-bottom: 1px solid rgba(232,161,77,0.4); padding-bottom: 2px;
+    transition: border-color 0.18s ease;
+  }
+  .email-line a:hover { border-color: var(--sun); }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 64px; background: var(--night); position: relative; z-index: 1; }
+  footer .inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer .meta { font-family: var(--display); font-weight: 500; font-size: 13px; color: var(--mute-dim); letter-spacing: 0.04em; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .photo { transform: none; }
+  }
+  :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">Tristan Huynh</div>
+      <nav class="navlinks">
+        <a href="#work">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <svg id="contours" preserveAspectRatio="none" viewBox="0 0 1200 600" aria-hidden="true"></svg>
+    <div class="wrap">
+      <span class="eyebrow">Software Engineer</span>
+      <h1>Tristan<br>Huynh</h1>
+      <p class="role">SWE Intern at ASRC Federal <span class="sep">/</span> CS at Arizona State</p>
+      <p class="lede">A software engineer and computer science student in Arizona. Off the clock I am usually <em>outside</em> or chasing down <em>a new record</em>.</p>
+      <div class="links">
+        <a href="#work">Experience</a>
+        <a href="#about">About me</a>
+        <a href="https://github.com/tridentH" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/tristanhuynh123" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="work">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Experience</span>
+          <h2>What I have been working on.</h2>
+        </div>
+
+        <div class="entry reveal">
+          <div class="when">2026 to Present</div>
+          <div>
+            <h3>Software Engineering Intern</h3>
+            <div class="org">ASRC Federal</div>
+            <p>I write software and build cloud tools as part of a federal modernization program. Most of the work is taking slow, manual processes and turning them into something automated and dependable.</p>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="when">2024 to Present</div>
+          <div>
+            <h3>Subject Area Tutor, Computer Science</h3>
+            <div class="org">Arizona State University</div>
+            <p>I help other students work through the CS core, from data structures to databases and networking. Explaining things clearly turned out to be one of the best ways to learn them myself.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Education</span>
+          <h2>Where I study.</h2>
+        </div>
+        <div class="entry reveal">
+          <div class="when">Grad. Dec 2027</div>
+          <div>
+            <h3>BS and Accelerated MS, Computer Science</h3>
+            <div class="org">Arizona State University</div>
+            <p>An accelerated track earning both my bachelor's and master's in computer science. Graduating Summa Cum Laude with the ASU Accelerated Master's Award.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Toolkit</span>
+          <h2>What I work with.</h2>
+        </div>
+        <div class="skillgrid reveal">
+          <div class="skillgroup">
+            <h4>Languages</h4>
+            <p>Python <span class="x">·</span> C# <span class="x">·</span> Java <span class="x">·</span> C and C++ <span class="x">·</span> JavaScript <span class="x">·</span> SQL</p>
+          </div>
+          <div class="skillgroup">
+            <h4>Web</h4>
+            <p>ASP.NET Core <span class="x">·</span> React <span class="x">·</span> Node.js <span class="x">·</span> HTML and CSS</p>
+          </div>
+          <div class="skillgroup">
+            <h4>Cloud and Tools</h4>
+            <p>AWS <span class="x">·</span> Docker <span class="x">·</span> Linux <span class="x">·</span> Git</p>
+          </div>
+          <div class="skillgroup">
+            <h4>Data and Systems</h4>
+            <p>pandas <span class="x">·</span> SQL Server <span class="x">·</span> networking <span class="x">·</span> Wireshark</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">About me</span>
+        </div>
+        <div class="about-grid reveal">
+          <figure class="photo" id="photo">
+            <img src="me.jpg" alt="Tristan Huynh" id="me" />
+          </figure>
+          <div class="about-text">
+            <h2>Hey, I'm Tristan.</h2>
+            <p>I grew up loving two things that have nothing to do with a screen: being outside and music. Most weekends I am out on a trail somewhere in Arizona, and the rest of the time there is almost always something playing.</p>
+            <p class="editme">Make this part yours. Swap in your favorite places to hike, what you have been listening to, an instrument you play, anything that is actually you. A real photo goes in the frame on the left.</p>
+            <div class="email-line">
+              <a href="mailto:tristanhuynh123@gmail.com">tristanhuynh123@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap inner">
+      <div class="meta">© 2026 Tristan Huynh</div>
+      <div class="meta">Made in Arizona</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var svg = document.getElementById('contours');
+      if (!svg) return;
+      var W = 1200, H = 600;
+      var colors = ['#E8A14D', '#CE6F4B', '#8FB3A6'];
+      var lines = 9;
+      for (var i = 0; i < lines; i++) {
+        var baseY = 60 + (i * (H - 120)) / (lines - 1);
+        var amp = 14 + (i % 3) * 12;
+        var wl = 220 + (i % 4) * 70;
+        var phase = i * 0.9;
+        var d = 'M 0 ' + (baseY + amp * Math.sin(phase)).toFixed(1);
+        for (var x = 10; x <= W; x += 12) {
+          var y = baseY + amp * Math.sin(x / wl + phase);
+          d += ' L ' + x + ' ' + y.toFixed(1);
+        }
+        var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p.setAttribute('d', d);
+        p.setAttribute('fill', 'none');
+        p.setAttribute('stroke', colors[i % colors.length]);
+        p.setAttribute('stroke-width', (1 + (i % 2) * 0.4).toFixed(1));
+        p.setAttribute('stroke-linecap', 'round');
+        p.setAttribute('opacity', (0.18 + (i % 3) * 0.05).toFixed(2));
+        svg.appendChild(p);
+      }
+    })();
+
+    (function () {
+      var img = document.getElementById('me');
+      var fig = document.getElementById('photo');
+      if (img) img.addEventListener('error', function () { img.style.display = 'none'; fig.classList.add('noimg'); });
+    })();
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  </script>
+</body>
+</html>
