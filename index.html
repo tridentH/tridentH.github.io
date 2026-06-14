@@ -142,7 +142,12 @@
     background: var(--night-2);
     position: relative;
   }
-  .home-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.home-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+}
   .home-img.noimg::after {
     content: "add images/home.jpg to the repo";
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -317,7 +322,7 @@
 
       <!-- drop imgs/home.jpg in your repo for this frame -->
       <div class="home-img" id="home-img">
-        <img src="imgs/night.jpg" alt="img" id="home-img-el" />
+        <img src="imgs/snow.jpg" alt="img" id="home-img-el" />
       </div>
 
       <div class="quote-block">
